@@ -1,4 +1,4 @@
-//promise.all api =>
+//promise.allsettled
 
 const p1 = new Promise((resolve, reject) => {
   setTimeout(() => resolve("P1 sucess"), 3000);
@@ -14,7 +14,7 @@ const p3 = new Promise((resolve, reject) => {
 });
 
 
-Promise.all([p1, p2, p3]).then(res => {
+Promise.allSettled([p1, p2, p3]).then(res => {
     console.log(res);
     
 })
