@@ -35,14 +35,44 @@ const student = {
   },
 };
 
-//we want to share the upper printname method to the student2 object 
+//we want to share the upper printname method to the student2 object
 
-student.printName()
+student.printName();
 
 const student2 = {
   name: "megs",
-  
 };
 
-student.printName.call(student2) //now the value of the this will be the student2
+student.printName.call(student2); //now the value of the this will be the student2
+
+//this keyword inside the arrow function
+
+//here we have the arrow function and the value of the this will be not in this object it depend on the its enclosing lexical context means that where it was written so here the object will written in the global space so here the this keyword will not behave like the inside the function it will behave like the this is present in the global space and the value will be the global object
+
+const obj3 = {
+  a: 10,
+  x: () => {
+    console.log(this);
+  },
+};
+obj3.x();
+
+//put the arrow function inside the normal function 
+//so here the this kwyword behave like the it will lexically enclosed lexical context 
+//here the value of the this will is the obj4
+
+const obj4 = {
+  a: 10,
+  x: function () {
+    const y = () => {
+      console.log(this);
+    };
+    y()
+  },
+};
+
+obj4.x()
+
+
+
 
